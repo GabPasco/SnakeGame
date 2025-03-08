@@ -11,6 +11,7 @@ public:
 	bool IsAlive;
 	//int Points = 0;
 	std::string Direction;
+	std::string Last_Direction;
 	int Size; // Head
 	std::vector<Vector2> Stored_Pos;
 
@@ -20,6 +21,7 @@ public:
 
 		IsAlive = true;
 		Direction = "";
+		Last_Direction = "";
 		Size = 3;
 		Stored_Pos.clear();
 		Stored_Pos.push_back(InitialPos);

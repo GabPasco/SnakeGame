@@ -17,13 +17,13 @@ void Game::ProcessInput()
 {
 	int KeyPressed = GetKeyPressed();
 
-	if (KeyPressed == KEY_W && Player.Direction != "Down")
+	if (KeyPressed == KEY_W && Player.Last_Direction != "Down")
 		Player.Direction = "Up";
-	else if (KeyPressed == KEY_A && Player.Direction != "Right")
+	else if (KeyPressed == KEY_A && Player.Last_Direction != "Right")
 		Player.Direction = "Left";
-	else if (KeyPressed == KEY_S && Player.Direction != "Up")
+	else if (KeyPressed == KEY_S && Player.Last_Direction != "Up")
 		Player.Direction = "Down";
-	else if (KeyPressed == KEY_D && Player.Direction != "Left")
+	else if (KeyPressed == KEY_D && Player.Last_Direction != "Left")
 		Player.Direction = "Right";
 }
 
@@ -56,6 +56,8 @@ void Game::ProcessDirection()
 			RelativePos = { 1 , 0 };
 		else
 			return;
+
+		Player.Last_Direction = Player.Direction;
 
 		Vector2 OldPos = Player.Stored_Pos.at(0); // Old head pos
 		Vector2 FinalPos = { OldPos.x + RelativePos.x , OldPos.y + RelativePos.y };
